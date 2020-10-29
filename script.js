@@ -20,7 +20,7 @@ let numberArray = [0,1,2,3,4,5,6,7,8,9];
 
 
 
-function generatePassword() {
+function generatePassword(pwLength, yesLowercase, yesUppercase, yesNumbers, yesSpecialChar) {
 
   let pwLength = prompt("How many characters would you like your password to contain?")
   
@@ -28,28 +28,28 @@ function generatePassword() {
     alert("I know, I know... here come the rules...\nThere's only one rule:\n1. You Do Not talk about Fight Club!\nokay... there's 2 rules.\n2. Password length must be between 8 - 128.")
     let pwLength = prompt("How many characters would you like your password to contain?")
   }
-  let superArray = [""];
-  let chosenChars = haveItYourWay()
+  // let superArray = [""]; 
+  // let chosenChars = haveItYourWay()
 
-  function haveItYourWay()  {
-    let yesLowercase = confirm("Would you like to include Lowercase Letters?");
-    let yesUppercase = confirm("Would you like to include Uppercase Letters?");
-    let yesNumbers = confirm("Would you like to include Numbers?");
-    let yesSpecialChar = confirm("Would you like to include Special Characters?");
-    if (yesLowercase === false && yesUppercase === false && yesNumbers === false && yesSpecialChar === false) {
-      alert("Please select at least one option\n[3+ options RECOMMENDED]")
-      haveItYourWay()
-    }
-    if (yesLowercase) {
-      return lowercaseArray,
-    }
-    if (yesUppercase) {
-      return uppercaseArray,
-    }
-      
+  let yesLowercase = confirm("Would you like to include Lowercase Letters?");
+  let yesUppercase = confirm("Would you like to include Uppercase Letters?");
+  let yesNumbers = confirm("Would you like to include Numbers?");
+  let yesSpecialChar = confirm("Would you like to include Special Characters?");
+  
+  if (yesLowercase === false && yesUppercase === false && yesNumbers === false && yesSpecialChar === false) {
+    alert("Please select at least one option\n[3+ options RECOMMENDED]")
+    haveItYourWay()
   }
-    
+  if (yesLowercase) {
+    return lowercaseArray,
+  }
+  if (yesUppercase) {
+    return uppercaseArray,
+  }
+      
 }
+    
+
 
 
 function adderReturn(x, y, z) {
