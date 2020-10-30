@@ -4,11 +4,24 @@ let generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 function writePassword() {
 
-    let password = generatePassword();
     let passwordText = document.querySelector("#password");
+
+    let password = generatePassword();
 
     passwordText.value = password;
 
+}
+
+// newText = originalText.replace('Geeks', ''); 
+
+//     document.querySelector('.output').textContent 
+//             = newText; 
+deletePassword();
+
+function deletePassword() {
+    originalText = document.querySelector("#password");
+    let clearText = "";
+    originalText.value = clearText;
 }
 
 // Define Copy password button & add Event listener
@@ -16,24 +29,27 @@ let copyBtn = document.querySelector("#copy")
 copyBtn.addEventListener("click", copyPassword);
 
 // Add event listener to generate button
+generateBtn.addEventListener("click", deletePassword);
 generateBtn.addEventListener("click", writePassword);
+
 
 // Define password character option Strings & Arrays
 let lowercaseArray = "abcdefghijklmnopqrstuvwxyz";
 let uppercaseArray = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 let specialCharArray = "!#$%&'()*+,-./:;<=>?@[^_`{|}~";
-let numberArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+let numberArray = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 let passwordArray = [];
 
 // Main Function to Prompt the user for Password Choices and Generate the Random Password
 function generatePassword() {
 
-    let pwLength = prompt("How many characters would you like your password to contain?")
+    let pwLength = prompt("How many characters would you like your password to contain?");
 
     if (pwLength < 8 || pwLength > 128 || isNaN(pwLength)) {
-        alert("I know, I know... here come the rules...\nThere's only one rule:\n1. You Do Not talk about Fight Club!\nokay... there's 2 rules.\n2. Password length must be between 8 - 128.")
-        prompt("How many characters would you like your password to contain?")
+        alert("I know, I know... here come the rules...\nThere's only one rule:\n1. You Do Not talk about Fight Club!\nokay... there's 2 rules.\n2. Password length must be between 8 - 128.");
+        return
     }
+
     // Character Choice Confirms & Minimum 1 choice Validation Funcion
     haveItYourWay();
 
@@ -58,18 +74,18 @@ function generatePassword() {
         }
 
         if (yesLowercase === false && yesUppercase === false && yesNumbers === false && yesSpecialChar === false) {
-            alert("Please select at least one option\n[3+ options RECOMMENDED]")
+            alert("Please select at least one option\n[3+ options RECOMMENDED]");
             haveItYourWay();
         }
     }
     // Define String for Random Password & Generate random characters According to desired Password Length
     let passwordCharacters = "";
-    for (let i = 0; i < passwordArray.length; i++) {
+    for (let i = 0; i < pwLength; i++) {
         let characters = passwordArray[Math.floor(Math.random() * passwordArray.length)];
         passwordCharacters = passwordCharacters + characters;
     }
-    document.querySelector("#copy")
-    copyBtn.setAttribute("style", "visibility: visible")
+    document.querySelector("#copy");
+    copyBtn.setAttribute("style", "visibility: visible");
 
 
     return passwordCharacters;
@@ -82,28 +98,3 @@ function copyPassword() {
     document.execCommand("copy");
     alert("Copied the text: " + copyText.value);
 }
-
-
-
-// function adderReturn(x, y, z) {
-//   return x + y + z;
-// }
-// let result = adderReturn(1, 2, 3);
-// console.log(result);
-
-
-// GIVEN I need a new, secure password
-// WHEN I click the button to generate a password
-// THEN I am presented with a series of prompts for password criteria
-// WHEN prompted for password criteria
-// THEN I select which criteria to include in the password
-// WHEN prompted for the length of the password
-// THEN I choose a length of at least 8 characters and no more than 128 characters
-// WHEN prompted for character types to include in the password
-// THEN I choose lowercase, uppercase, numeric, and/or special characters
-// WHEN I answer each prompt
-// THEN my input should be validated and at least one character type should be selected
-// WHEN all prompts are answered
-// THEN a password is generated that matches the selected criteria
-// WHEN the password is generated
-// THEN the password is either displayed in an alert or written to the page
