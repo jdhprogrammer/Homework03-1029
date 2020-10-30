@@ -12,18 +12,6 @@ function writePassword() {
 
 }
 
-// newText = originalText.replace('Geeks', ''); 
-
-//     document.querySelector('.output').textContent 
-//             = newText; 
-deletePassword();
-
-function deletePassword() {
-    originalText = document.querySelector("#password");
-    let clearText = "";
-    originalText.value = clearText;
-}
-
 // Define Copy password button & add Event listener
 let copyBtn = document.querySelector("#copy")
 copyBtn.addEventListener("click", copyPassword);
@@ -32,7 +20,6 @@ copyBtn.addEventListener("click", copyPassword);
 generateBtn.addEventListener("click", deletePassword);
 generateBtn.addEventListener("click", writePassword);
 
-
 // Define password character option Strings & Arrays
 let lowercaseArray = "abcdefghijklmnopqrstuvwxyz";
 let uppercaseArray = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -40,6 +27,15 @@ let specialCharArray = "!#$%&'()*+,-./:;<=>?@[^_`{|}~";
 let numberArray = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 let passwordArray = [];
 
+deletePassword();
+// Clear 1st password from text box for 2nd Password Generation & hide copy button
+function deletePassword() {
+    originalText = document.querySelector("#password");
+    let clearText = "";
+    originalText.value = clearText;
+    document.querySelector("#copy");
+    copyBtn.setAttribute("style", "visibility: hidden");
+}
 // Main Function to Prompt the user for Password Choices and Generate the Random Password
 function generatePassword() {
 
@@ -47,13 +43,15 @@ function generatePassword() {
 
     if (pwLength < 8 || pwLength > 128 || isNaN(pwLength)) {
         alert("I know, I know... here come the rules...\nThere's only one rule:\n1. You Do Not talk about Fight Club!\nokay... there's 2 rules.\n2. Password length must be between 8 - 128.");
-        return
+        return "try again & choose between 8 - 128 characters";
     }
 
     // Character Choice Confirms & Minimum 1 choice Validation Funcion
     haveItYourWay();
 
     function haveItYourWay() {
+        // Clear past passwordArray strings
+        passwordArray = [];
 
         let yesLowercase = confirm("Would you like to include Lowercase Letters?");
         let yesUppercase = confirm("Would you like to include Uppercase Letters?");
@@ -86,7 +84,6 @@ function generatePassword() {
     }
     document.querySelector("#copy");
     copyBtn.setAttribute("style", "visibility: visible");
-
 
     return passwordCharacters;
 }
