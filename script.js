@@ -17,7 +17,7 @@ let copyBtn = document.querySelector("#copy")
 copyBtn.addEventListener("click", copyPassword);
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", deletePassword);
+generateBtn.addEventListener("mousedown", deletePassword);
 generateBtn.addEventListener("click", writePassword);
 
 // Define password character option Strings & Arrays
@@ -43,7 +43,8 @@ function generatePassword() {
 
     if (pwLength < 8 || pwLength > 128 || isNaN(pwLength)) {
         alert("I know, I know... here come the rules...\nThere's only one rule:\n1. You Do Not talk about Fight Club!\nokay... there's 2 rules.\n2. Password length must be between 8 - 128.");
-        return "try again & choose between 8 - 128 characters";
+        // Note to user in text box (so it doesn't say "Undefined")
+        return "let's try again & choose between 8 - 128 characters";
     }
 
     // Character Choice Confirms & Minimum 1 choice Validation Funcion

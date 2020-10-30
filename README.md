@@ -56,7 +56,9 @@ THEN the password is either displayed in an alert or written to the page
 
 ## Screenshots
 
-![Screenshot of AltText](Assets/Screenshots/AltText.jpeg?raw=true "AltText")
-![Screenshot of AltText](Assets/Screenshots/AltText.jpeg?raw=true "AltText")
-![Screenshot of AltText](Assets/Screenshots/AltText.jpeg?raw=true "AltText")
-![Screenshot of AltText](Assets/Screenshots/AltText.jpeg?raw=true "AltText")
+![Screenshot of Code](Assets/Screenshots/Password_01.jpeg?raw=true "Code")
+![Screenshot of Code](Assets/Screenshots/Password_02.jpeg?raw=true "Code")
+![Screenshot of Code](Assets/Screenshots/Password_03.jpeg?raw=true "Code")
+![Screenshot of Code](Assets/Screenshots/Password_04.jpeg?raw=true "Code")
+![Screenshot of Application](Assets/Screenshots/Password_05.jpeg?raw=true "Application")
+![Screenshot of Application](Assets/Screenshots/Password_06.jpeg?raw=true "Application")
