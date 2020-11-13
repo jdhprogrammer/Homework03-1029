@@ -4,9 +4,9 @@
 email: jdh.programmer@gmail.com - 
 github: https://github.com/jdhprogrammer
 
-Project Repository: https://github.com/jdhprogrammer/Homework03-1029
+Project Repository: https://github.com/jdhprogrammer/JS_Password_Generator
 
-Project Deployment: https://jdhprogrammer.github.io/Homework03-1029/
+Project Deployment: http://jdhprogrammer.com/JS_Password_Generator/
 
 ## Your Task
 
